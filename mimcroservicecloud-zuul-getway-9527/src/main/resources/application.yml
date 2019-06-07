@@ -1,0 +1,19 @@
+server:
+ port: 9527
+ 
+spring:
+ application:
+  name: microservicecloud-zuul-getway
+##域名管理
+zuul:
+ ignored-services: "*" ##在网关访问下,从此不能通过任何微服务名访问 
+ routes: ##路由
+  mdp.serviceId: MICROSERVICECLOUD-DEPT-PROVIDER ##真实服务名为mdp的serviceId 注意大小写
+  mdp.path: /mydept/** ##通过mdp的path属性也可以访问该服务
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://eureka1.com:7001/eureka/,http://eureka2.com:7002/eureka/,http://eureka3.com:7003/eureka/
+ instance:
+  instanceId: getway-9527.com
+  prefer-ip-address: true  

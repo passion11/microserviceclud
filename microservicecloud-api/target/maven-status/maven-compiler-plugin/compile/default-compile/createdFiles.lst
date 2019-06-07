@@ -1,0 +1,4 @@
+com\springcloud\service\deptFeignHystrixService$1.class
+com\springcloud\entity\Dept.class
+com\springcloud\service\deptFeignService.class
+com\springcloud\service\deptFeignHystrixService.class

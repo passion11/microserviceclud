@@ -1,0 +1,8 @@
+spring:
+ cloud:
+  config:
+   name: cloudconfig ##需要从github获得的资源名称,注意没有后缀yml
+   profile: dev  ##本次访问的配置项
+   label: master
+   uri: http://config.com:3344  ##启动后先去访问config3344,通过springcloudconfig获得github的服务地址
+   

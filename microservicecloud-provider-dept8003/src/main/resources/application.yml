@@ -1,0 +1,36 @@
+server:
+ port: 8003
+mybatis:
+ config-location: classpath:mybatis/mybatis.cfg.xml 
+ type-aliases-package: com.springcloud.entity 
+ mapper-locations: classpath:mybatis/mappers/*.xml 
+ 
+spring:
+ application:
+  name: microservicecloud-dept-provider
+ datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  driver-class-name: org.gjt.mm.mysql.Driver
+  url: jdbc:mysql://localhost:3306/clouddb03?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+  username: root
+  password: 123456
+  dbcp2:
+   min-idle: 5
+   initial-size: 5
+   max-total: 5
+#将该服务注册到eureka服务器上,该服务器主机为loaclhost,端口号为7001   
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://eureka1.com:7001/eureka/,http://eureka2.com:7002/eureka/,http://eureka3.com:7003/eureka/
+#修改eureka服务器上显示的status名称
+ instance:
+  instanceId: microservicecloud-dept8003
+  prefer-ip-address: true #访问路径可以显示IP地址
+  
+info:
+ app.name: com
+ company.name: www.baidu.com
+ build.artifactID: $project.artifactId$
+ build.version: $project.version$
+ 
